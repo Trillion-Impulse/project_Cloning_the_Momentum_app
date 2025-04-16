@@ -1,4 +1,4 @@
-const aphorism = [
+const aphorisms = [
     {
         aphorism: "That which does not kill us makes us stronger",
         author: "Friedrich Nietzsche"
@@ -20,3 +20,11 @@ const aphorism = [
         author: "Walt Disney"
     }
 ]
+
+const aphorism = document.querySelector("#aphorism span:first-child");
+const author = document.querySelector("#aphorism span:last-child");
+
+const todaysAphorism = aphorisms[Math.floor(Math.random()*aphorisms.length)];
+
+aphorism.innerText = todaysAphorism.aphorism;
+author.innerText = todaysAphorism.author;
