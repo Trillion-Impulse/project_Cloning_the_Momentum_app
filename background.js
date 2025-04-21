@@ -6,4 +6,6 @@ const bgimage = document.createElement("img");
 
 bgimage.src = `${chosenImage}`;
 
+bgimage.alt = "랜덤 배경";
+
 document.body.appendChild(bgimage);
