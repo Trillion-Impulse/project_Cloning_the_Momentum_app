@@ -17,8 +17,12 @@
                 <h2 id="clock">00:00:00</h2>
                 <div id="login-or-greeting">
                     <form id="login-form" class="hidden">
-                        <input name="namefield" type="text" placeholder="What is your name?" required maxlength="15">
-                        <input type="submit" value="Log In">
+                        <!-- <input name="namefield" type="text" placeholder="What is your name?" required maxlength="15"> -->
+                        <div class="form-control">
+                            <input class="input input-alt" type="text" placeholder="Type your name and press Enter" required maxlength="15">
+                            <span class="input-border input-border-alt"></span>
+                        </div>
+                        <!-- <input type="submit" value="Log In"> -->
                     </form>
                     <h1 id="greeting" class="hidden"></h1>
                 </div>
