@@ -6,61 +6,132 @@ body {
     color: white;
 }
 
-#center-container {
+/* 여기부터 전체 적인 레이아웃 grid로 정의*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    /* 전체 default: border와 content만 존재 */
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    /* %는 부모요소에 대한 비율
+    html의 부모요소는 viewport(화면)
+    html 100%는 화면 전체
+    그 상태에서 body 100%하면 그것도 화면 전체 */
+}
+
+body div.container {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-rows: 1fr 6.18fr 1fr; /* 행 비율 */
+    grid-template-columns: 1fr 6.18fr 1fr; /* 열 비율 */
+    gap: 0px; /* 그리드 아이템 사이의 간격 */
+    /* border: 2px solid red; container 구분선 */
+}
+    aside, header, main, footer {
+        padding: 10px;
+        /* border: 2px dashed yellowgreen; container 구분선 */
+    }
+    aside#left-container {
+        grid-row: 1 / span 3;
+        grid-column: 1;
+    }
+    header#header-container {
+        grid-row: 1;
+        grid-column: 2;
+    }
+    main#main-container {
+        grid-row: 2;
+        grid-column: 2;
+    }
+    footer#footer-container {
+        grid-row: 3;
+        grid-column: 2;
+    }
+    aside#right-container {
+        grid-row: 1 / span 3;
+        grid-column: 3;
+    }
+/* 여기까지 전체 적인 레이아웃 grid로 정의*/
+
+#main-container {
     display: flex;
-    flex-direction: column;
-    justify-content: center; /* 열 가운데 */
-    align-items: center;  /* 행 가운데 */
-    height: 90vh;
+    flex-direction: column; /* 주 축 방향 설정 */
+    justify-content: center; /* 주 축에서의 정렬 */
+    align-items: center;  /* 교차 축에서의 정렬 */
     text-align: center;
 }
 
 #clock {
-  font-size: 5vw;
+    font-size: 6.18vw;
 }
 
-#weather {
-    position: absolute;
-    top: 30px;
-    right: 30px;
-    text-align: right;
+#login-or-greeting {
+    position: relative;
+    width: 50%;
+    height: 15%;
+    margin-bottom: 3.82%;
 }
-
-#aphorism {
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%); /* 요소를 왼쪽으로 50% 만큼 이동시켜 중앙으로 정렬 */
-  text-align: center;
-  white-space: nowrap; /* 텍스트가 줄바꿈 없이 한 줄로 유지되도록 함 */
-}
+    #login-form, #greeting {
+        position: absolute;
+        top: 50%;    /*부모 높이의 절반 지점으로 이동*/
+        left: 50%;    /*부모 너비의 절반 지점으로 이동*/
+        transform: translate(-50%, -50%); /*요소 자체의 너비/높이의 절반만큼 다시 뒤로 옮겨서 정확히 가운데 정렬*/
+        width: 100%;
+        text-align: center;
+    }
+    #greeting {
+        font-size: 3.82vw;
+    }
 
 .text-focus-in {
-	-webkit-animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-	        animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+    -webkit-animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+            animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
 }
-
 @-webkit-keyframes text-focus-in {
     0% {
-      -webkit-filter: blur(12px);
-              filter: blur(12px);
-      opacity: 0;
+        -webkit-filter: blur(12px);
+                filter: blur(12px);
+        opacity: 0;
     }
     100% {
-      -webkit-filter: blur(0px);
-              filter: blur(0px);
-      opacity: 1;
+        -webkit-filter: blur(0px);
+                filter: blur(0px);
+        opacity: 1;
     }
   }
   @keyframes text-focus-in {
     0% {
-      -webkit-filter: blur(12px);
-              filter: blur(12px);
-      opacity: 0;
+        -webkit-filter: blur(12px);
+                filter: blur(12px);
+        opacity: 0;
     }
     100% {
-      -webkit-filter: blur(0px);
-              filter: blur(0px);
-      opacity: 1;
+        -webkit-filter: blur(0px);
+                filter: blur(0px);
+        opacity: 1;
     }
   }
+
+#weather {
+    height: 10%; /*#right-container의 10%크기*/
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#aphorism {
+    height: 100%; /*footer의 100%크기*/
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
