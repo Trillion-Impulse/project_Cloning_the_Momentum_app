@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <!-- 아래는 화면 너비에 맞게 페이지를 조정, 페이지가 처음 로드될 때 초기 확대 비율이 크기 조정 없이 그대로 표시 -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
         <title>Cloning the Momentum app</title>
     </head>
     <body>
@@ -46,13 +46,13 @@
                 </div>
             </aside>
         </div>
-        <script src="app.js"></script>
-        <script src="clock.js"></script>
-        <script src="aphorism.js"></script>
-        <script src="background.js"></script>
-        <script src="todo.js"></script>
-        <script src="config.js"></script>
-        <script src="weather.js"></script>
+        <script src="{{ url_for('static', filename='js/app.js')}}"></script>
+        <script src="{{ url_for('static', filename='js/clock.js')}}"></script>
+        <script src="{{ url_for('static', filename='js/aphorism.js')}}"></script>
+        <script src="{{ url_for('static', filename='js/background.js')}}"></script>
+        <script src="{{ url_for('static', filename='js/todo.js')}}"></script>
+        <script src="{{ url_for('static', filename='js/config.js')}}"></script>
+        <script src="{{ url_for('static', filename='js/weather.js')}}"></script>
     </body>
 
 </html>
